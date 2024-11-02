@@ -9,9 +9,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@DiscriminatorValue("Seller")
+@DiscriminatorValue("seller")
 @Entity
 public class Seller extends User {
 
@@ -23,8 +22,8 @@ public class Seller extends User {
     private String razonSocial;
     private TypeOfUser typeOfUser;
 
-    public Seller(Long id, String name, String password, String email, String phone, String address, String cif, String razonSocial, TypeOfUser typeOfUser) {
-        super(id, name, password, email, phone, address);
+    public Seller(String name, String password, String email, String phone, String address, String cif, String razonSocial, TypeOfUser typeOfUser) {
+        super(name, password, email, phone, address);
         this.cif = cif;
         this.razonSocial = razonSocial;
         this.typeOfUser = typeOfUser;

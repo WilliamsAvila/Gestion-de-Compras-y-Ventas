@@ -13,20 +13,17 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class ResgistoCompra {
+public class Purchase {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer purchaseRecordId;
-
-    //forenkey
-
     private int customerId;
     private LocalDate purchaseDate;
     private int productId;
 
     @ManyToOne
-    @JoinColumn(name= "PurchaseID",referencedColumnName = "id")
+    @JoinColumn(name= "purchase_id",referencedColumnName = "id")
     private Customer customerList;
 
 

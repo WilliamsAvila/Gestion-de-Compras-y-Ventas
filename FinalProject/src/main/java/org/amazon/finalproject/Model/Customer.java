@@ -3,6 +3,8 @@ package org.amazon.finalproject.Model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,17 +13,18 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@DiscriminatorValue("Customer")
+@DiscriminatorValue("customer")
 public class Customer extends User {
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.TABLE)
 //    private int customerId;
+    @Enumerated (EnumType.STRING)
     private TypeOfUser typeOfUser;
-    public Customer(Long id, String name, String password,
+    public Customer(String name, String password,
                     String email, String phone, String address,
                     TypeOfUser typeOfUser) {
-        super(id, name, password, email, phone, address);
+        super(name, password, email, phone, address);
         this.typeOfUser = typeOfUser;
     }
 

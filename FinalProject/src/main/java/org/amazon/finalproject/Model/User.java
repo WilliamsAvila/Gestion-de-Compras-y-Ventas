@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name= "typeUser")
+@DiscriminatorColumn(name= "type_user")
 public class User {
 
     @Id
@@ -24,5 +24,11 @@ public class User {
     private String phone;
     private String address;
 
-
+    public User(String name, String password, String email, String phone, String address) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
 }
