@@ -2,6 +2,8 @@ package org.amazon.finalproject.Model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,7 @@ public class Seller extends User {
 
     private String cif;
     private String razonSocial;
+    @Enumerated(EnumType.STRING)
     private TypeOfUser typeOfUser;
 
     public Seller(String name, String password, String email, String phone, String address, String cif, String razonSocial, TypeOfUser typeOfUser) {
