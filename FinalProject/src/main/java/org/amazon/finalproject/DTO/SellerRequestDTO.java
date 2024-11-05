@@ -1,13 +1,22 @@
 package org.amazon.finalproject.DTO;
 
-import org.amazon.finalproject.Model.Seller;
-import org.amazon.finalproject.Model.TypeOfUser;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-public class SellerRequestDTO extends Seller {
-    public SellerRequestDTO() {
-    }
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class SellerRequestDTO {
 
-    public SellerRequestDTO(String name, String password, String email, String phone, String address, String cif, String razonSocial, TypeOfUser typeOfUser) {
-        super(name, password, email, phone, address, cif, razonSocial, typeOfUser);
-    }
+
+    private String name;
+    private String password;
+    private String email;
+    private String phone;
+    private String address;
+    private String cif;
+    private String companyName;
 }

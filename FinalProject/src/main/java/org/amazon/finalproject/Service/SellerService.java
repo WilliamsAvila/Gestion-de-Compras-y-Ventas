@@ -1,7 +1,6 @@
 package org.amazon.finalproject.Service;
 
 import org.amazon.finalproject.DTO.SellerRequestDTO;
-import org.amazon.finalproject.Model.Customer;
 import org.amazon.finalproject.Model.Seller;
 import org.amazon.finalproject.Repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,7 @@ public class SellerService {
         seller2.setPassword(seller.getPassword());
         seller2.setAddress(seller.getAddress());
         seller2.setPhone(seller.getPhone());
-        seller2.setRazonSocial(seller.getRazonSocial());
-        seller2.setTypeOfUser(seller.getTypeOfUser());
+        seller2.setCompanyName(seller.getCompanyName());
         sellerRepository.save(seller2);
         return seller2;
 
@@ -63,11 +61,8 @@ public class SellerService {
             if (!Objects.equals(seller.getAddress(), foundCustomer.getAddress()) && seller.getAddress() != null) {
                 foundCustomer.setAddress(seller.getAddress());
             }
-            if (!Objects.equals(seller.getTypeOfUser(), foundCustomer.getTypeOfUser())) {
-                foundCustomer.setTypeOfUser(seller.getTypeOfUser());
-            }
-            if(!Objects.equals(seller.getRazonSocial(), foundCustomer.getRazonSocial())){
-                foundCustomer.setRazonSocial(seller.getRazonSocial());
+            if(!Objects.equals(seller.getCompanyName(), foundCustomer.getCompanyName())){
+                foundCustomer.setCompanyName(seller.getCompanyName());
             }
             if(!Objects.equals(seller.getCif(), foundCustomer.getCif())){
                 foundCustomer.setCif(seller.getCif());

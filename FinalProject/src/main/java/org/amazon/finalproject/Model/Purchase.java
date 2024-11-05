@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Purchase {
@@ -18,13 +18,18 @@ public class Purchase {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer purchaseRecordId;
-    private int customerId;
     private LocalDate purchaseDate;
     private int productId;
 
+    public Purchase(LocalDate purchaseDate, int productId, Customer customer) {
+        this.purchaseDate = purchaseDate;
+        this.productId = productId;
+        this.customer = customer;
+    }
+
     @ManyToOne
-    @JoinColumn(name= "purchase_id",referencedColumnName = "id")
-    private Customer customerList;
+//    @JoinColumn(name= "purchase_id",referencedColumnName = "id")
+    private Customer customer;
 
 
 

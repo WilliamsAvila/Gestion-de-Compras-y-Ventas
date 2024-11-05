@@ -1,13 +1,13 @@
 package org.amazon.finalproject.Model;
 
 
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,16 +16,12 @@ import lombok.Setter;
 @DiscriminatorValue("customer")
 public class Customer extends User {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.TABLE)
-//    private int customerId;
-    @Enumerated (EnumType.STRING)
-    private TypeOfUser typeOfUser;
-    public Customer(String name, String password,
-                    String email, String phone, String address,
-                    TypeOfUser typeOfUser) {
+
+    public Customer(String name, String password, String email, String phone, String address) {
         super(name, password, email, phone, address);
-        this.typeOfUser = typeOfUser;
+
     }
 
+//    @OneToMany(mappedBy = "customer")
+//    private List<Purchase> purchases = new ArrayList<>();
 }
