@@ -1,7 +1,10 @@
 package org.amazon.finalproject.Controller;
 
+import org.amazon.finalproject.DTO.InventoryRequestDTO;
 import org.amazon.finalproject.DTO.SellerRequestDTO;
+import org.amazon.finalproject.Model.Inventory;
 import org.amazon.finalproject.Model.Seller;
+import org.amazon.finalproject.Service.InventoryService;
 import org.amazon.finalproject.Service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +20,9 @@ public class SellerController {
     @Autowired
     private SellerService sellerService;
 
+    @Autowired
+    private InventoryService inventoryService;
+
     @PostMapping
     public ResponseEntity<Seller> creteSeller(@RequestBody SellerRequestDTO sellerRequestDTO) {
         Seller seller = sellerService.addSeller(sellerRequestDTO);
@@ -28,6 +34,16 @@ public class SellerController {
         Optional<Seller> seller1 = sellerService.updateSeller(id, sellerRequestDTO);
         if (seller1.isPresent()) {
             return ResponseEntity.status(HttpStatus.OK).body(seller1.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @PostMapping("/inventory")
+    public ResponseEntity<Inventory> addInventory(@RequestBody InventoryRequestDTO inventoryRequestDTO) {
+        Optional<Inventory> inventory1 = inventoryService.createInventory(inventoryRequestDTO);
+        if (inventory1.isPresent()) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(inventory1.get());
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }

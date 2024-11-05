@@ -25,5 +25,6 @@ public class Seller extends User {
         super(name, password, email, phone, address);
         this.cif = cif;
         this.companyName = companyName;
+
     }
 }
