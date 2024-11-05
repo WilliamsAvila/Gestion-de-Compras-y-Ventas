@@ -17,20 +17,22 @@ public class Purchase {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer purchaseRecordId;
+    private int purchaseRecordId;
     private LocalDate purchaseDate;
-    private int productId;
-
-    public Purchase(LocalDate purchaseDate, int productId, Customer customer) {
-        this.purchaseDate = purchaseDate;
-        this.productId = productId;
-        this.customer = customer;
-    }
 
     @ManyToOne
-//    @JoinColumn(name= "purchase_id",referencedColumnName = "id")
+    @JoinColumn(name= "customer_Id",referencedColumnName = "id")
     private Customer customer;
 
+    @ManyToOne
+    @JoinColumn(name = "product_Id",referencedColumnName = "productId")
+    private Inventory inventory;
 
 
+    public Purchase(LocalDate purchaseDate, Customer customer, Inventory inventory) {
+        this.purchaseDate = purchaseDate;
+        this.customer = customer;
+        this.inventory = inventory;
+
+}
 }

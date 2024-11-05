@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.amazon.finalproject.Model.Customer;
+import org.amazon.finalproject.Model.Inventory;
 
 import java.time.LocalDate;
 @Getter
@@ -12,10 +13,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PurchaseRequestDTO {
-    private int id;
-    private Integer purchaseRecordId;
+
     private LocalDate purchaseDate;
+    private int customerId;
     private int productId;
+
 
     // customerId
 }
