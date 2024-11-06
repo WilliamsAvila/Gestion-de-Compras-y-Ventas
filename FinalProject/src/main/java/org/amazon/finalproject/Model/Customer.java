@@ -6,15 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @DiscriminatorValue("customer")
-public class Customer extends User {
+public class Customer extends Users {
 
 
     public Customer(String name, String password, String email, String phone, String address) {

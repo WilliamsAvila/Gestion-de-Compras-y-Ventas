@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @DiscriminatorValue("seller")
 @Entity
-public class Seller extends User {
+public class Seller extends Users {
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.TABLE)
