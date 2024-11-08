@@ -3,15 +3,19 @@ package org.amazon.finalproject.Controller;
 
 import org.amazon.finalproject.DTO.CustomerRequestDTO;
 import org.amazon.finalproject.DTO.PurchaseRequestDTO;
+import org.amazon.finalproject.Model.Category;
 import org.amazon.finalproject.Model.Customer;
+import org.amazon.finalproject.Model.Inventory;
 import org.amazon.finalproject.Model.Purchase;
 import org.amazon.finalproject.Service.CustomerService;
+import org.amazon.finalproject.Service.InventoryService;
 import org.amazon.finalproject.Service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,6 +27,8 @@ public class CustomerController {
 
     @Autowired
     private PurchaseService purchaseService;
+    @Autowired
+    private InventoryService inventoryService;
 
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@RequestBody CustomerRequestDTO customer) {
@@ -48,5 +54,11 @@ public class CustomerController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/category/{category}")
+    public List<Inventory> getAllInventoryByCategory(@PathVariable Category category) {
+        return inventoryService.getAllInventoryByCategory(category);
+    }
+
 }
 

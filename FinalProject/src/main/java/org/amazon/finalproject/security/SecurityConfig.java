@@ -88,7 +88,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/roles/add-to-user").permitAll()
                 .requestMatchers(POST, "/api/customer").hasAnyAuthority("BUYER")
                 .requestMatchers(POST, "/api/seller").hasAnyAuthority("SELLER")
-
+                .requestMatchers(GET, "/api/seller/get-inventory/{id}").hasAnyAuthority("SELLER")
+                .requestMatchers(GET, "/api/customer/category/{category}").hasAnyAuthority("BUYER")
                 .anyRequest().authenticated()); // any other endpoints require authentication
 
                 // public endpoint, we could add more if we wanted to

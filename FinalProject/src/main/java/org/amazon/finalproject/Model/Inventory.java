@@ -17,17 +17,20 @@ public class Inventory {
     private Integer productId;
 
     private String productName;
-    private String productDescription;
-    private String productCategory;
-    private double productPrice;
+    private String Description;
+    @Enumerated(EnumType.STRING)
+    private Category category;
+    private double price;
     @ManyToOne
     private Seller seller;
 
-    public Inventory(String productName, String productDescription, String productCategory, double productPrice, Seller seller) {
+    public Inventory(String productName, String description, Category category, double price, Seller seller) {
         this.productName = productName;
-        this.productDescription = productDescription;
-        this.productCategory = productCategory;
-        this.productPrice = productPrice;
+        Description = description;
+        this.category = category;
+        this.price = price;
         this.seller = seller;
     }
+
+
 }

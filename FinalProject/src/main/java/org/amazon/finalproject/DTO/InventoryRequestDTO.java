@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.amazon.finalproject.Model.Category;
 
 @Getter
 @Setter
@@ -12,8 +13,8 @@ import lombok.Setter;
 public class InventoryRequestDTO {
 
     private int id;
-    private String productName;
-    private String productDescription;
-    private String productCategory;
-    private double productPrice;
+    private String name;
+    private String description;
+    private Category category;
+    private double price;
 }
