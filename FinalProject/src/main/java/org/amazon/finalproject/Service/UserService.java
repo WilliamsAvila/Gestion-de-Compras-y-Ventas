@@ -48,6 +48,7 @@ public class UserService implements UserDetailsService {
      * @return the UserDetails object that matches the given username
      * @throws UsernameNotFoundException if the user with the given username is not found
      */
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // Retrieve user with the given username
         User user = userRepository.findByUsername(username);
@@ -73,6 +74,7 @@ public class UserService implements UserDetailsService {
      * @param user the user to be saved
      * @return the saved user
      */
+
     public User saveUser(User user) {
         log.info("Saving new user {} to the database", user.getName());
         // Validate username is unique - create query existsByUsername
@@ -87,6 +89,7 @@ public class UserService implements UserDetailsService {
      * @param username the username to search for
      * @return the user with the given username
      */
+
     public User getUser(String username) {
         log.info("Fetching user {}", username);
         return userRepository.findByUsername(username);
@@ -97,6 +100,7 @@ public class UserService implements UserDetailsService {
      *
      * @return a list of all users
      */
+
     public List<User> getUsers() {
         log.info("Fetching all users");
         return userRepository.findAll();

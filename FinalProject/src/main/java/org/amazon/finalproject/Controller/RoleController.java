@@ -25,11 +25,11 @@ public class RoleController {
      *
      * @param role role to be saved
      */
-    @PostMapping("/roles")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void saveRole(@RequestBody Role role) {
-        roleService.saveRole(role);
-    }
+//    @PostMapping("/roles")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public void saveRole(@RequestBody Role role) {
+//        roleService.saveRole(role);
+//    }
 
     /**
      * Add a role to a user

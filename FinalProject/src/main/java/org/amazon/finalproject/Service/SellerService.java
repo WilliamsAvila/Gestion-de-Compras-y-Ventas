@@ -25,7 +25,7 @@ public class SellerService {
         }
         seller2.setCif(seller.getCif());
         seller2.setEmail(seller.getEmail());
-        seller2.setPassword(seller.getPassword());
+//        seller2.setPassword(seller.getPassword());
         seller2.setAddress(seller.getAddress());
         seller2.setPhone(seller.getPhone());
         seller2.setCompanyName(seller.getCompanyName());
@@ -49,9 +49,9 @@ public class SellerService {
             if (!Objects.equals(seller.getName(), foundCustomer.getName()) && seller.getName() != null) {
                 foundCustomer.setName(seller.getName());
             }
-            if (!Objects.equals(seller.getPassword(), foundCustomer.getPassword()) && seller.getPassword() != null) {
-                foundCustomer.setPassword(seller.getPassword());
-            }
+//            if (!Objects.equals(seller.getPassword(), foundCustomer.getPassword()) && seller.getPassword() != null) {
+//                foundCustomer.setPassword(seller.getPassword());
+//            }
             if (!Objects.equals(seller.getEmail(), foundCustomer.getEmail()) && seller.getEmail() != null) {
                 foundCustomer.setEmail(seller.getEmail());
             }

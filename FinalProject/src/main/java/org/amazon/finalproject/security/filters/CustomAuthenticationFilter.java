@@ -81,7 +81,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
      */
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
-        // Cast the authentication principal to spring security Users object
+        // Cast the authentication principal to spring security User object
         User user = (User) authentication.getPrincipal();
 
         // Creating an HMAC256 (Hash-based Message Authentication Code using SHA-512 algorithm)

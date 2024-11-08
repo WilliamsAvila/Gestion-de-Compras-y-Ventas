@@ -11,7 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SellerRequestDTO {
 
-
     private String name;
     private String password;
     private String email;

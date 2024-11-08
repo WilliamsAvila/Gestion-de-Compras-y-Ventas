@@ -19,14 +19,12 @@ public class Users {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String password;
     private String email;
     private String phone;
     private String address;
 
-    public Users(String name, String password, String email, String phone, String address) {
+    public Users(String name, String email, String phone, String address) {
         this.name = name;
-        this.password = password;
         this.email = email;
         this.phone = phone;
         this.address = address;

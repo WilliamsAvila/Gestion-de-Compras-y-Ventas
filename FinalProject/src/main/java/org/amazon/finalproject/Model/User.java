@@ -26,11 +26,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
-
     private String username;
-
     private String password;
 
     // We use EAGER to make sure the roles are retrieved immediately (without having to do additional queries)

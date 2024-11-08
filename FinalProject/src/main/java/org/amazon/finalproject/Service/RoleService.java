@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class RoleService {
+public class RoleService  {
 
     /**
      * Autowired UserRepository for database operations.
@@ -32,6 +32,7 @@ public class RoleService {
      * @param role the role to be saved
      * @return the saved role
      */
+
     public Role saveRole(Role role) {
         log.info("Saving new role {} to the database", role.getName());
         return roleRepository.save(role);
@@ -43,6 +44,7 @@ public class RoleService {
      * @param username the username of the user to add the role to
      * @param roleName the name of the role to be added
      */
+
     public void addRoleToUser(String username, String roleName) {
         log.info("Adding role {} to user {}", roleName, username);
 

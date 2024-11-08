@@ -83,13 +83,28 @@ public class SecurityConfig {
 
         // set up authorization for different request matchers and user roles
         http.authorizeHttpRequests((requests) -> requests
-                .requestMatchers("/api/login/**").permitAll() // public endpoint, we could add more if we wanted to
-                // could be deleted .requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                .requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
-                .requestMatchers(POST, "/api/users").hasAnyAuthority("ROLE_ADMIN")
-                .requestMatchers(POST, "/api/roles").hasAnyAuthority("ROLE_ADMIN")
-                .requestMatchers(POST, "/api/roles/add-to-user").hasAnyAuthority("ROLE_ADMIN")
+//                .requestMatchers("/api/login/**").permitAll()
+                .requestMatchers("/api/users").permitAll()
+                .requestMatchers("/api/roles/add-to-user").permitAll()
+                .requestMatchers(POST, "/api/customer").hasAnyAuthority("BUYER")
+                .requestMatchers(POST, "/api/seller").hasAnyAuthority("SELLER")
+
                 .anyRequest().authenticated()); // any other endpoints require authentication
+
+                // public endpoint, we could add more if we wanted to
+                // public endpoint, we could add more if we wanted to
+                // could be deleted .requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+//                .requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+//                .requestMatchers(POST, "/api/seller").hasAnyAuthority("ROLE_ADMIN")
+//                .requestMatchers(POST, "/api/customer").hasAnyAuthority("ROLE_USER")
+//                .requestMatchers(POST, "/api/roles/add-to-user").hasAnyAuthority("ROLE_ADMIN")
+
+
+
+
+
+
+
 
         // add the custom authentication filter to the http security object
         http.addFilter(customAuthenticationFilter);

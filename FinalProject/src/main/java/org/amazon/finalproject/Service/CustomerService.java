@@ -3,7 +3,6 @@ package org.amazon.finalproject.Service;
 import org.amazon.finalproject.DTO.CustomerRequestDTO;
 import org.amazon.finalproject.Model.Customer;
 import org.amazon.finalproject.Repository.CustomerRepository;
-import org.amazon.finalproject.Repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,7 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public Customer addCustomer(CustomerRequestDTO customer) {
-        Customer customer1 = new Customer (customer.getName(),customer.getPassword(),customer.getEmail(), customer.getPhone(), customer.getAddress());
+        Customer customer1 = new Customer(customer.getName(), customer.getEmail(),customer.getPhone(),customer.getAddress());
         return customerRepository.save(customer1);
     }
 
@@ -27,9 +26,6 @@ public class CustomerService {
             Customer foundCustomer = findCustomerById.get();
             if (!Objects.equals(customer.getName(), foundCustomer.getName()) && customer.getName() != null) {
                 foundCustomer.setName(customer.getName());
-            }
-            if (!Objects.equals(customer.getPassword(), foundCustomer.getPassword()) && customer.getPassword() != null) {
-                foundCustomer.setPassword(customer.getPassword());
             }
             if (!Objects.equals(customer.getEmail(), foundCustomer.getEmail()) && customer.getEmail() != null) {
                 foundCustomer.setEmail(customer.getEmail());

@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 
@@ -19,8 +21,6 @@ public class FinalProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FinalProjectApplication.class, args);
 	}
-
-
 	// To centralize configuration and allow to use it through dependency injection in our application
 	@Bean
 	PasswordEncoder passwordEncoder() {
@@ -31,19 +31,19 @@ public class FinalProjectApplication {
 	@Bean
 	CommandLineRunner run(UserService userService, RoleService roleService) {
 		return args -> {
-			roleService.saveRole(new Role(null, "ROLE_USER"));
-			roleService.saveRole(new Role(null, "ROLE_ADMIN"));
 
-			userService.saveUser(new User(null, "John Doe", "john", "1234", new ArrayList<>()));
-			userService.saveUser(new User(null, "James Smith", "james", "1234", new ArrayList<>()));
-			userService.saveUser(new User(null, "Jane Carry", "jane", "1234", new ArrayList<>()));
-			userService.saveUser(new User(null, "Chris Anderson", "chris", "1234", new ArrayList<>()));
+			roleService.saveRole(new Role(null, "BUYER"));
+			roleService.saveRole(new Role(null, "SELLER"));
 
-			roleService.addRoleToUser("john", "ROLE_USER");
-			roleService.addRoleToUser("james", "ROLE_ADMIN");
-			roleService.addRoleToUser("jane", "ROLE_USER");
-			roleService.addRoleToUser("chris", "ROLE_ADMIN");
-			roleService.addRoleToUser("chris", "ROLE_USER");
+
+//			userService.saveUser(new User(null, "Williams Avila", "Will", "3456", new ArrayList<>()));
+//			userService.saveUser(new User(null, "Marlon Hidalgo", "Mar", "3456", new ArrayList<>()));
+//
+//			roleService.addRoleToUser("Will", "BUYER");
+//			roleService.addRoleToUser("Mar", "SELLER");
+
 		};
 	}
+
+
 }

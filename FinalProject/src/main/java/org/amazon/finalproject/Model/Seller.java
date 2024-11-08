@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+import java.util.Collection;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,11 +23,9 @@ public class Seller extends Users {
     private String cif;
     private String companyName;
 
-
-    public Seller(String name, String password, String email, String phone, String address, String cif, String companyName) {
-        super(name, password, email, phone, address);
+    public Seller(String name, String email, String phone, String address, String cif, String companyName) {
+        super(name, email, phone, address);
         this.cif = cif;
         this.companyName = companyName;
-
     }
 }

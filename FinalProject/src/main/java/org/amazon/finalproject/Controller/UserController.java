@@ -1,9 +1,7 @@
 package org.amazon.finalproject.Controller;
 
-
-import org.amazon.finalproject.Model.User;
-
 import org.amazon.finalproject.Service.UserService;
+import org.amazon.finalproject.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +13,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api")
-public class UserController  {
+public class UserController {
 
     /**
      * User service for accessing user data
@@ -28,11 +26,11 @@ public class UserController  {
      *
      * @return list of all users
      */
-    @GetMapping("/users")
-    @ResponseStatus(HttpStatus.OK)
-    public List<User> getUsers() {
-        return userService.getUsers();
-    }
+//    @GetMapping("/users")
+//    @ResponseStatus(HttpStatus.OK)
+//    public List<User> getUsers() {
+//        return userService.getUsers();
+//    }
 
     /**
      * Save a new user
