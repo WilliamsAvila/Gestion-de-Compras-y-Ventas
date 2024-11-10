@@ -49,9 +49,6 @@ public class SellerService {
             if (!Objects.equals(seller.getName(), foundCustomer.getName()) && seller.getName() != null) {
                 foundCustomer.setName(seller.getName());
             }
-//            if (!Objects.equals(seller.getPassword(), foundCustomer.getPassword()) && seller.getPassword() != null) {
-//                foundCustomer.setPassword(seller.getPassword());
-//            }
             if (!Objects.equals(seller.getEmail(), foundCustomer.getEmail()) && seller.getEmail() != null) {
                 foundCustomer.setEmail(seller.getEmail());
             }
@@ -61,10 +58,10 @@ public class SellerService {
             if (!Objects.equals(seller.getAddress(), foundCustomer.getAddress()) && seller.getAddress() != null) {
                 foundCustomer.setAddress(seller.getAddress());
             }
-            if(!Objects.equals(seller.getCompanyName(), foundCustomer.getCompanyName())){
+            if(!Objects.equals(seller.getCompanyName(), foundCustomer.getCompanyName())&& seller.getCompanyName() != null) {
                 foundCustomer.setCompanyName(seller.getCompanyName());
             }
-            if(!Objects.equals(seller.getCif(), foundCustomer.getCif())){
+            if(!Objects.equals(seller.getCif(), foundCustomer.getCif()) && seller.getCif() != null) {
                 foundCustomer.setCif(seller.getCif());
             }
             Seller updatedCustomer = sellerRepository.save(foundCustomer);

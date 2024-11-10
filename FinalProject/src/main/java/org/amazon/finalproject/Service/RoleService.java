@@ -41,15 +41,15 @@ public class RoleService  {
     /**
      * Adds a role to the user with the given username
      *
-     * @param username the username of the user to add the role to
+     * @param userName the username of the user to add the role to
      * @param roleName the name of the role to be added
      */
 
-    public void addRoleToUser(String username, String roleName) {
-        log.info("Adding role {} to user {}", roleName, username);
+    public void addRoleToUser(String userName, String roleName) {
+        log.info("Adding role {} to user {}", roleName, userName);
 
         // Retrieve the user and role objects from the repository
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.findByUsername(userName);
         Role role = roleRepository.findByName(roleName);
 
         // Add the role to the user's role collection

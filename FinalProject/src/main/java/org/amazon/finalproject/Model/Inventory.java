@@ -1,7 +1,6 @@
 package org.amazon.finalproject.Model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +16,7 @@ public class Inventory {
     private Integer productId;
 
     private String productName;
-    private String Description;
+    private String description;
     @Enumerated(EnumType.STRING)
     private Category category;
     private double price;
@@ -26,11 +25,9 @@ public class Inventory {
 
     public Inventory(String productName, String description, Category category, double price, Seller seller) {
         this.productName = productName;
-        Description = description;
+        this.description = description;
         this.category = category;
         this.price = price;
         this.seller = seller;
     }
-
-
 }

@@ -10,4 +10,7 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
     List<Inventory> findAllBySellerId (Long seller_id);
     List<Inventory> findAllByCategory (Category category);
+
+//    List<Inventory> deleteInventoryByProductId(int id);
 }
+

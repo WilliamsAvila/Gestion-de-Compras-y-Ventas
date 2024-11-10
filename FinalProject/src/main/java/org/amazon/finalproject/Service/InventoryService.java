@@ -41,4 +41,8 @@ public class InventoryService {
     public  List<Inventory> getAllInventoryByCategory(Category category) {
         return inventoryRepository.findAllByCategory(category);
     }
+
+//    public List<Inventory> deleteInventory(int id) {
+//        return inventoryRepository.deleteInventoryByProductId(id);
+//    }
 }

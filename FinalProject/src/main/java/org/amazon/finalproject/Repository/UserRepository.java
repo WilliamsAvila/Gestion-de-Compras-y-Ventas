@@ -14,11 +14,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     /**
      * Method to find a User entity by its username field
      *
-     * @param username The username of the User entity to search for
+     * @param userName The username of the User entity to search for
      * @return The found User entity or null if not found
      */
     // ideally an optional
-    User findByUsername(String username);
+    User findByUsername(String userName);
 
     // create query existsByUsername returns boolean
 }

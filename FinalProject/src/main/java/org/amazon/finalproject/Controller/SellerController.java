@@ -39,7 +39,6 @@ public class SellerController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
     }
-
     @PostMapping("/inventory")
     public ResponseEntity<Inventory> addInventory(@RequestBody InventoryRequestDTO inventoryRequestDTO) {
         Optional<Inventory> inventory1 = inventoryService.createInventory(inventoryRequestDTO);
@@ -54,4 +53,12 @@ public class SellerController {
     public List<Inventory> getAllInventoryBySellerId (@PathVariable("id") Long id) {
         return inventoryService.getAllInventoryBySellerId(id);
     }
+
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Inventory> deleteIventory (@PathVariable int id) {
+//        Inventory inventory  = InventoryService.deleteInventory(id);
+//
+//
+//    }
 }
+

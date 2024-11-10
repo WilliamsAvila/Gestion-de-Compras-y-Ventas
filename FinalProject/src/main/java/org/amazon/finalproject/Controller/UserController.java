@@ -40,6 +40,6 @@ public class UserController {
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     public void saveUser(@RequestBody User user) {
-        userService.saveUser(user);
+         userService.saveUser(user);
     }
 }
