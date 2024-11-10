@@ -16,12 +16,10 @@ import java.util.Collection;
 @NoArgsConstructor
 @DiscriminatorValue("customer")
 public class Customer extends Users {
+
+
     public Customer(String name, String email, String phone, String address) {
         super(name, email, phone, address);
     }
 
-
-
-//    @OneToMany(mappedBy = "customer")
-//    private List<Purchase> purchases = new ArrayList<>();
 }

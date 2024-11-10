@@ -42,7 +42,13 @@ public class InventoryService {
         return inventoryRepository.findAllByCategory(category);
     }
 
-//    public List<Inventory> deleteInventory(int id) {
-//        return inventoryRepository.deleteInventoryByProductId(id);
-//    }
+    public Optional <Inventory> deleteInventory(int id){
+        Optional<Inventory> inventory = inventoryRepository.findById(id);
+        if(inventory.isPresent()) {
+            inventoryRepository.deleteById(id);
+            return inventory;
+        } else {
+            return Optional.empty();
+        }
+    }
 }

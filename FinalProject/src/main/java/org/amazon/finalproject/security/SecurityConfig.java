@@ -17,8 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
+import static org.springframework.http.HttpMethod.*;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 /**
@@ -90,6 +89,7 @@ public class SecurityConfig {
                 .requestMatchers(POST, "/api/seller").hasAnyAuthority("SELLER")
                 .requestMatchers(GET, "/api/seller/get-inventory/{id}").hasAnyAuthority("SELLER")
                 .requestMatchers(GET, "/api/customer/category/{category}").hasAnyAuthority("BUYER")
+                .requestMatchers(DELETE, "/api/seller/delete-inventory/{id}").hasAnyAuthority("SELLER")
                 .anyRequest().authenticated()); // any other endpoints require authentication
 
                 // public endpoint, we could add more if we wanted to

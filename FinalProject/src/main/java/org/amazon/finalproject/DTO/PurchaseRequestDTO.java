@@ -19,5 +19,4 @@ public class PurchaseRequestDTO {
     private int productId;
 
 
-    // customerId
 }

@@ -54,11 +54,14 @@ public class SellerController {
         return inventoryService.getAllInventoryBySellerId(id);
     }
 
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Inventory> deleteIventory (@PathVariable int id) {
-//        Inventory inventory  = InventoryService.deleteInventory(id);
-//
-//
-//    }
+    @DeleteMapping("/delete-inventory/{id}")
+    public ResponseEntity<Void> deleteIventory (@PathVariable int id) {
+        Optional<Inventory> deleteInventory = inventoryService.deleteInventory(id);
+        if (deleteInventory.isPresent()) {
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
 }
 

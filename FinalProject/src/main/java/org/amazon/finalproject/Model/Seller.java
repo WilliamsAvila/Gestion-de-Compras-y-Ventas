@@ -16,9 +16,6 @@ import java.util.Collection;
 @Entity
 public class Seller extends Users {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.TABLE)
-//    private int sellerId;
 
     private String cif;
     private String companyName;

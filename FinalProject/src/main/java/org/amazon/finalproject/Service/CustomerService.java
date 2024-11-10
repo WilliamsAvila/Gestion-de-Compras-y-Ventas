@@ -44,15 +44,7 @@ public class CustomerService {
         }
     }
 
-    public Optional<Customer> deleteCustomer(Integer id) {
-        Optional<Customer> findCustomerById = customerRepository.findById(id);
-        if (findCustomerById.isPresent()) {
-            Customer foundCustomer = findCustomerById.get();
-            customerRepository.delete(foundCustomer);
-            return Optional.of(foundCustomer);
-        } else
-            return Optional.empty();
-    }
+
 
 
 }
