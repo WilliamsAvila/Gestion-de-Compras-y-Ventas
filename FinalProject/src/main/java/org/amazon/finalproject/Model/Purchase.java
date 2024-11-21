@@ -1,5 +1,6 @@
 package org.amazon.finalproject.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,10 +22,12 @@ public class Purchase {
     private LocalDate purchaseDate;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name= "customer_Id",referencedColumnName = "id")
     private Customer customer;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "product_Id",referencedColumnName = "productId")
     private Inventory inventory;
 

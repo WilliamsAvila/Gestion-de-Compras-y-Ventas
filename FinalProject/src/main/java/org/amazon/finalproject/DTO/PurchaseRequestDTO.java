@@ -1,5 +1,6 @@
 package org.amazon.finalproject.DTO;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class PurchaseRequestDTO {
 
+    @NotNull
     private LocalDate purchaseDate;
+    @NotNull
     private int customerId;
+    @NotNull
     private int productId;
 
 

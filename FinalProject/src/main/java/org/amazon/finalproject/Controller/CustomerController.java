@@ -1,6 +1,7 @@
 package org.amazon.finalproject.Controller;
 
 
+import jakarta.validation.Valid;
 import org.amazon.finalproject.DTO.CustomerRequestDTO;
 import org.amazon.finalproject.DTO.PurchaseRequestDTO;
 import org.amazon.finalproject.Model.Category;
@@ -11,6 +12,7 @@ import org.amazon.finalproject.Service.CustomerService;
 import org.amazon.finalproject.Service.InventoryService;
 import org.amazon.finalproject.Service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +34,7 @@ public class CustomerController {
     private InventoryService inventoryService;
 
     @PostMapping
-    public ResponseEntity<Customer> createCustomer(@RequestBody CustomerRequestDTO customer) {
+    public ResponseEntity<Customer> createCustomer(@Valid @RequestBody CustomerRequestDTO customer) {
     Customer customer1 = customerService.addCustomer(customer);
     return ResponseEntity.status(HttpStatus.CREATED).body(customer1);
     }
