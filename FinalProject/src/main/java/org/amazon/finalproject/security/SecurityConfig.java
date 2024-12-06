@@ -100,13 +100,6 @@ public class SecurityConfig {
 //                .requestMatchers(POST, "/api/customer").hasAnyAuthority("ROLE_USER")
 //                .requestMatchers(POST, "/api/roles/add-to-user").hasAnyAuthority("ROLE_ADMIN")
 
-
-
-
-
-
-
-
         // add the custom authentication filter to the http security object
         http.addFilter(customAuthenticationFilter);
 

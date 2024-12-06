@@ -11,6 +11,7 @@ import org.amazon.finalproject.Model.Purchase;
 import org.amazon.finalproject.Service.CustomerService;
 import org.amazon.finalproject.Service.InventoryService;
 import org.amazon.finalproject.Service.PurchaseService;
+import org.aspectj.bridge.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -61,6 +62,12 @@ public class CustomerController {
     @GetMapping("/category/{category}")
     public List<Inventory> getAllInventoryByCategory(@PathVariable Category category) {
         return inventoryService.getAllInventoryByCategory(category);
+    }
+
+    @GetMapping("/{findByName}")
+    public String getCustomer(@PathVariable String findByName) {
+        return customerService.findCustomerByName(findByName).getName() + " Esta en la base de datos";
+
     }
 
 }

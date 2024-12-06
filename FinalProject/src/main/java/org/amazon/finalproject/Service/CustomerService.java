@@ -6,6 +6,8 @@ import org.amazon.finalproject.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.rmi.NoSuchObjectException;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -22,6 +24,7 @@ public class CustomerService {
 
     public Optional<Customer> updateCustomer(Integer id, CustomerRequestDTO customer) {
         Optional<Customer> findCustomerById = customerRepository.findById(id);
+
         if (findCustomerById.isPresent()) {
             Customer foundCustomer = findCustomerById.get();
             if (!Objects.equals(customer.getName(), foundCustomer.getName()) && customer.getName() != null) {
@@ -42,6 +45,11 @@ public class CustomerService {
         } else {
             return Optional.empty();
         }
+    }
+
+
+    public Customer findCustomerByName(String name) {
+        return this.customerRepository.findByName(name).orElseThrow(() -> new NoSuchElementException("Customer not found"));
     }
 
 
