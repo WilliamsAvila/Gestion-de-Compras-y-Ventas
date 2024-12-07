@@ -35,6 +35,7 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@Valid @RequestBody CustomerRequestDTO customer) {
+//        log.info("POST: Create Customer{}", customer);
     Customer customer1 = customerService.addCustomer(customer);
     return ResponseEntity.status(HttpStatus.CREATED).body(customer1);
     }
@@ -65,7 +66,7 @@ public class CustomerController {
 
     @GetMapping("/{findByName}")
     public String getCustomer(@PathVariable String findByName) {
-        log.info("GET: customer{}", findByName);
+        log.info("GET: customer {} ", findByName);
         return customerService.findCustomerByName(findByName).getName() + " Esta en la base de datos";
 
     }
