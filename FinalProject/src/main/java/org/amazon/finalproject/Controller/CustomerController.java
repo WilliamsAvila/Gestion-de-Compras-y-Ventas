@@ -22,6 +22,7 @@ import java.util.Optional;
 @Slf4j
 @RestController
 @RequestMapping("/api/customer")
+//@Tag(name = "Customer-Purchase")
 public class CustomerController {
 
     @Autowired
@@ -33,6 +34,7 @@ public class CustomerController {
     @Autowired
     private InventoryService inventoryService;
 
+//    @Operation(summary = "Create a new Customer-Purchase")
     @PostMapping
     public ResponseEntity<Customer> createCustomer(@Valid @RequestBody CustomerRequestDTO customer) {
 //        log.info("POST: Create Customer{}", customer);
@@ -40,6 +42,7 @@ public class CustomerController {
     return ResponseEntity.status(HttpStatus.CREATED).body(customer1);
     }
 
+//    @Operation(summary = "Update a Customer-Purchase Registered")
     @PutMapping("/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable int id, @RequestBody CustomerRequestDTO customer) {
         Optional<Customer> customer1 = customerService.updateCustomer(id,customer);
@@ -49,6 +52,7 @@ public class CustomerController {
             return ResponseEntity.notFound().build();
     }
 
+//    @Operation(summary = "Create a new Purchase")
     @PostMapping("/purchase")
     public ResponseEntity<Purchase> createPurchase(@RequestBody PurchaseRequestDTO purchase) {
         Optional<Purchase> purchase1 = purchaseService.createPurchase(purchase);
@@ -59,6 +63,7 @@ public class CustomerController {
         }
     }
 
+//    @Operation(summary = "Get all inventory by Category")
     @GetMapping("/category/{category}")
     public List<Inventory> getAllInventoryByCategory(@PathVariable Category category) {
         return inventoryService.getAllInventoryByCategory(category);
