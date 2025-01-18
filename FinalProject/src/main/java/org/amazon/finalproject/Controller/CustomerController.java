@@ -29,7 +29,8 @@ public class CustomerController {
     private CustomerService customerService;
 
     @Autowired
-    private PurchaseService purchaseService;
+    private
+    PurchaseService purchaseService;
 
     @Autowired
     private InventoryService inventoryService;
